@@ -1,6 +1,4 @@
 import { Inter } from "next/font/google";
-import Image from "next/image";
-import { ReactNode, createContext } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,18 +26,18 @@ export async function getStaticProps() {
 	}
 }
 
-export default function Home(products: Array<Product>) {
+export default function Home({ products }: { products: Product[] }) {
 	return (
 		<>
 			<h1>Lets see Products</h1>
-			{products?.map((product) => {
+			{products?.map((product) => (
 				<div key={product.id}>
 					<h2>{product.title}</h2>
 					<p>{product.description}</p>
-					<p>{product.price}</p>
-					<Image src={product.image} alt={product.title} />
-				</div>;
-			})}
+					<p>Price: {product.price.toFixed(2)}€</p>
+					<br />
+				</div>
+			))}
 		</>
 	);
 }
