@@ -6,6 +6,7 @@ import { title } from "process";
 import {
 	ReactNode,
 	createContext,
+	use,
 	useContext,
 	useEffect,
 	useState,
@@ -46,7 +47,9 @@ const ContextProvider = ({ children }: ContextProps) => {
 				"https://mockend.up.railway.app/api/products/"
 			);
 			const data = await result.json();
-
+			// TODO : NOTE :
+			const array: Product[] = use(data);
+			setProducts(array);
 			return data;
 		} catch (error) {
 			console.error("Error fetching products", error);
