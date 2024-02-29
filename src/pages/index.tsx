@@ -32,14 +32,18 @@ export default function Home({ products }: { products: Product[] }) {
 	return (
 		<>
 			<h1>Lets see Products</h1>
-			{products?.map((product) => (
-				<div key={product.id}>
-					<h2>{product.title}</h2>
-					<p>{product.description}</p>
-					<p>Price: {product.price.toFixed(2)}€</p>
-					<br />
-				</div>
-			))}
+			<ul>
+				{products?.map((product) => (
+					<li key={product.id}>
+						<div>
+							<h2>{product.title}</h2>
+							<p>{product.description}</p>
+							<p>Price: {product.price.toFixed(2)}€</p>
+							<br />
+						</div>
+					</li>
+				))}
+			</ul>
 		</>
 	);
 }
