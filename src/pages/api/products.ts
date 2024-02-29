@@ -6,7 +6,7 @@ export default async function getProducts(
 ) {
 	try {
 		const fetchedData = await fetch(
-			"https://mockend.up.railway.app/api/products/"
+			"https://products-mockend-node-production.up.railway.app/api/products"
 		);
 		const parsedData = await fetchedData.json();
 
