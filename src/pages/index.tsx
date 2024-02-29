@@ -15,13 +15,13 @@ interface Product {
 
 export async function getStaticProps() {
 	try {
-		const response = await fetch(
-			"https://mockend.up.railway.app/api/products/"
-		);
+		const response = await fetch("/api/products");
 		const data = await response.json();
+
 		return { props: { products: data } };
 	} catch (error) {
 		console.error("Error fetching products", error);
+
 		return { props: { products: [] } };
 	}
 }
